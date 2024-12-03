@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\repository\UserRepository;
+use App\repository\UserRepositoryInterface;
+use Illuminate\Http\Request;
+
+class AuthController extends Controller
+{
+    private  $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository){
+        $this->userRepository=$userRepository;
+    }
+
+    public function register(Request $request){
+       $data=$request->validate([
+            'name'=>'required|max:255',
+            'email'=>'required|email|unique:users',
+            'password'=>'required|confirmed',
+            'phone'=>'required|unique:users|numeric',
+            'address'=>'required',
+            'image'=>'required'
+        ]);
+
+        $user=$this->userRepository->Register($data);
+
+        return response($user,201);
+    }
+
+    public  function login(Request $request){
+
+        $data=$request->validate([
+            'email'=>'required|email|exists:users',
+            'password'=>'required',
+        ]);
+
+        $user=$this->userRepository->Login($data);
+
+        return response($user,201);
+    }
+
+    public function logout(Request $request){
+        $request->user()->tokens()->delete();
+
+        return [
+            'message'=>'You are logged out'
+        ];
+    }
+}
