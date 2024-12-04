@@ -21,6 +21,13 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('favorite', function (Blueprint $table) {
+            $table->id();
+            $table->json('products');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->timestamps();
+        });
+
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
