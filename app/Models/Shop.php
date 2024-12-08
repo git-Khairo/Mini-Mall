@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Shop extends Model
 {
-     /** @use HasFactory<\Database\Factories\ProductFactory> */
-     use HasFactory;
-
+    /** @use HasFactory<\Database\Factories\ShopFactory> */
+    use HasFactory;
      /**
       * The attributes that are mass assignable.
       *
@@ -19,10 +19,10 @@ class Shop extends Model
          'name',
          'logo',
          'address',
-         'phonenumber'
+         'phonenumber',
      ];
 
      public function products(){
         return $this->hasMany(Product::class);
-    }
+     }
 }

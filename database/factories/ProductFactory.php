@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Category;
+use App\Models\Shop;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -27,9 +28,13 @@ class ProductFactory extends Factory
         ];
         // Fetch the categories from the database
         $categories = Category::all();
+        $shops = Shop::all();
 
         // Handle the case where no categories are found
         if ($categories->isEmpty()) {
+            throw new \Exception("No categories found. Please ensure categories are seeded first.");
+        }
+        if ($shops->isEmpty()) {
             throw new \Exception("No categories found. Please ensure categories are seeded first.");
         }
 
@@ -38,9 +43,14 @@ class ProductFactory extends Factory
         $categoryName = $category->id;
         $productName = $this->faker->randomElement($productNames[$categoryName]);
 
+        $shop = $shops->random();
+        $ShopId = $shop->id;
+        $productName = $this->faker->randomElement($productNames[$ShopId]);
+
         return [
             'name' => $productName,
-            'Category_id' =>  $category->id,
+            'Category_id' =>  $categoryName,
+            'shop_id' =>  $ShopId,
             'price' => $this->faker->randomFloat(2, 10, 200),
             'amount' => $this->faker->numberBetween(1, 100),
             'image' => $this->faker->imageUrl(),

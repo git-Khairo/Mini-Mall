@@ -1,6 +1,6 @@
 <?php
 
-namespace App\repository;
+namespace App\repositoryInterface;
 
 use App\Models\Product;
 
@@ -9,6 +9,4 @@ interface ProductRepositoryInterface
 
  public function all();
  public function find($id);
-
-
 }

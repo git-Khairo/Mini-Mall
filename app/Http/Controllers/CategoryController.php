@@ -23,7 +23,7 @@ class CategoryController extends Controller
     {
         $categories = $this->CategoryRepository->all();
 
-        return response()->json($categories);
+        return response()->json(['messgae' => 'all Categories', 'categories' => $categories,201]);
     }
 
 
@@ -33,9 +33,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $products = $this->CategoryRepository->find($id);
+        $ProductsAndShops = $this->CategoryRepository->find($id);
 
-        return response()->json($products);
+        return response()->json(['messgae' => 'Category ' .$id. ' has been passed', 'ProductsAndShops' => $ProductsAndShops,201]);
     }
 
 }

@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\repository\ProductRepositoryInterface;
+use App\repositoryInterface\ProductRepositoryInterface;
+use Illuminate\Support\Facades\Request;
 
 class ProductController extends Controller
 {
 
     private  $ProductRepository;
 
-    public function __construct(ProductRepositoryInterface   $ProductRepository){
+    public function __construct(ProductRepositoryInterface  $ProductRepository){
         $this->ProductRepository=$ProductRepository;
     }
 
@@ -23,24 +24,9 @@ class ProductController extends Controller
     {
         $products = $this->ProductRepository->all();
 
-        return response()->json($products);
+        return response()->json(['message' => 'All products', 'products' => $products, 201]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreProductRequest $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -49,30 +35,6 @@ class ProductController extends Controller
     {
         $product = $this->ProductRepository->find($id);
 
-        return response()->json($product);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateProductRequest $request, Product $product)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Product $product)
-    {
-        //
+        return response()->json(['message' => 'All products', 'products' => $product, 201]);
     }
 }

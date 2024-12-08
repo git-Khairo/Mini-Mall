@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('logo');
             $table->string('address');
-            $table->bigInteger('phonenumber');
+            $table->string('phonenumber');
             $table->timestamps();
         });
     }

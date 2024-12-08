@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-     /** @use HasFactory<\Database\Factories\ProductFactory> */
-     use HasFactory;
-
+    /** @use HasFactory<\Database\Factories\OrderFactory> */
+    use HasFactory;
      /**
       * The attributes that are mass assignable.
       *
@@ -18,8 +17,10 @@ class Order extends Model
      protected $fillable = [
          'products',
          'user_id',
-         'total'
+         'status',
+         'total',
      ];
+
 
      public function user(){
         return $this->belongsTo(User::class);

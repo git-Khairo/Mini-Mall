@@ -3,6 +3,7 @@
 namespace App\repository;
 
 use App\Models\Category;
+use App\repositoryInterface\CategoryRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 
 class CategoryRepository implements CategoryRepositoryInterface
@@ -16,9 +17,15 @@ class CategoryRepository implements CategoryRepositoryInterface
 
      $products=$category->products;
 
+    //  $shops = $products
+    //     ->pluck('shop')
+    //     ->unique()
+    //     ->values();  
+
      $response=[
          'category'=>$category,
-         'products'=>$products
+         'products'=>$products,
+        //  'shops'    => $shops,
      ];
 
      return $response;

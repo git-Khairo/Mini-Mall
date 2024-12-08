@@ -13,9 +13,17 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->json('products');
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->json('products');
+            $table->string('status');
             $table->double('total');
+            $table->timestamps();
+        });
+
+        Schema::create('favorites', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }

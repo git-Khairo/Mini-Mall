@@ -1,6 +1,6 @@
 <?php
 
-namespace App\repository;
+namespace App\repositoryInterface;
 
 interface UserRepositoryInterface
 {

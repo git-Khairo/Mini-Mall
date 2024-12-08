@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\repository\UserRepository;
-use App\repository\UserRepositoryInterface;
+use App\repositoryInterface\UserRepositoryInterface;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         $user=$this->userRepository->Register($data);
 
-        return response($user,201);
+        return response()->json(['message' => 'User registered successfully', 'user' => $user,201]);
     }
 
     public  function login(Request $request){
@@ -38,7 +38,7 @@ class AuthController extends Controller
 
         $user=$this->userRepository->Login($data);
 
-        return response($user,201);
+        return response()->json(['message' => 'User logged in successfully', 'user' => $user,201]);
     }
 
     public function logout(Request $request){

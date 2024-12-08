@@ -3,6 +3,7 @@
 namespace App\repository;
 
 use App\Models\Product;
+use App\repositoryInterface\ProductRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 
 class ProductRepository implements ProductRepositoryInterface
