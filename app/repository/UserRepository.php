@@ -5,12 +5,17 @@ namespace App\repository;
 use App\Models\User;
 use App\repositoryInterface\UserRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class UserRepository implements UserRepositoryInterface
 {
    public function Register(array $data)
    {
        $user=User::create($data);
+
+       $userRole = Role::firstOrCreate(['name' => 'user']);  // New user role
+
+       $user->assignRole($userRole);
 
        $token=$user->createToken($user->name)->plainTextToken;
 

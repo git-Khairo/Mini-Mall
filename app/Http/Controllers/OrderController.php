@@ -23,6 +23,7 @@ class OrderController extends Controller
     {
         // Validate the input data
         $validatedData = $request->validate([
+            'shop_id'=>'required',
             'status' => 'required|string|in:pending,confirmed,cancelled',
             'total' => 'required|numeric|min:0',
             'products' => 'required|array',

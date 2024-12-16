@@ -22,7 +22,7 @@ Route::get('/products',[ProductController::class,'index']);
 Route::get('/products/{id}',[ProductController::class,'show']);
 Route::get('/Shops',[ShopController::class, 'all']);
 Route::get('/Shops/{id}',[ShopController::class, 'show']);
-Route::get('/Orders',[OrderController::class, 'all']);
+Route::get('/search',[ProductController::class, 'search']);
 
 //pro Rote
 Route::group(['middleware'=>['auth:sanctum']], function (){

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ShopFactory extends Factory
 {
+     protected static $userCounter = 2;
     /**
      * Define the model's default state.
      *
@@ -24,6 +25,7 @@ class ShopFactory extends Factory
             'logo' => $this->faker->imageUrl(),
             'address' => $this->faker->sentence(),
             'phonenumber' => $this->faker->phoneNumber(),
+            'user_id' => self::$userCounter++
         ];
     }
 }

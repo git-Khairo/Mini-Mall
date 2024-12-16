@@ -5,12 +5,20 @@ namespace App\repository;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Shop;
+use App\Models\User;
 use App\repositoryInterface\AdminRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
 
 class AdminRepository implements AdminRepositoryInterface
 {
-    public function viewAllOrders(){
-        return Order::all();
+    public function viewOrders(){
+        $user=Auth::user();
+
+        $shop=$user->shop;
+
+        return $shop->orders;
     }
 
     public function deleteOrder($id){
@@ -131,5 +139,44 @@ class AdminRepository implements AdminRepositoryInterface
     $shop->delete();
 
     return 'Shop deleted successfully';
+   }
+
+   public function viewProducts(){
+       $user=Auth::user();
+
+       $shop=$user->shop;
+
+       $products =$shop->products;
+
+       return $products;
+   }
+
+   public function Register($data){
+       $imageName = Storage::disk('public')->put('images', $data->image);
+
+       $data['image']= $imageName;
+
+       $user=User::create($data);
+
+       $userRole = Role::firstOrCreate(['name' => 'admin']);  // New user role
+
+       $user->assignRole($userRole);
+
+       return $user;
+
+   }
+
+   public function viewUsers(){
+       $users = User::all();
+
+       return $users;
+   }
+
+   public function viewShops(){
+       $user=Auth::user();
+
+       $shop=$user->shop;
+
+       return $shop;
    }
 }

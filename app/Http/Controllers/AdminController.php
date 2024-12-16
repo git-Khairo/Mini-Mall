@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\categories;
+use App\Models\Category;
+use App\Models\product;
+use App\Models\User;
 use App\repositoryInterface\AdminRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,8 +25,14 @@ class AdminController extends Controller
             'password' => ['required']
         ]);
 
+
         if(Auth::attempt($fields)){
+            $id=Auth::id();
+            $user=User::find($id);
+           if($user->hasRole('admin'))
             return redirect()->route('viewOrders');
+           else
+               return ;
         }else{
             return back()->withErrors([
                 'failed' => 'The provided credentials do not match our records'
@@ -30,9 +40,10 @@ class AdminController extends Controller
         }
     }
 
-    public function viewAllOrders()
+    public function viewOrders()
     {
-        $orders = $this->AdminRepository->viewAllOrders();
+        //if()
+        $orders = $this->AdminRepository->viewOrders();
 
         return view('pages.orders', ['orders' => $orders, 'option' => 'all']);
     }
@@ -51,40 +62,6 @@ class AdminController extends Controller
         $order = $this->AdminRepository->orderConfirmation($validatedData, $id);
 
         return;
-    }
-
-    public function createShop(Request $request){
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'address' => 'required|string',
-            'phonenumber' => 'required|integer',
-        ]);
-
-        $shop = $this->AdminRepository->createShop($validatedData);
-
-        return;
-    }
-
-    public function updateShop(Request $request, $id){
-        // Validate the data (optional but recommended)
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'address' => 'required|string',
-            'phonenumber' => 'required|integer',
-        ]);
-
-        $shop = $this->AdminRepository->updateShop($validatedData,$id);
-
-        response()->json(['message' => 'Shop updated successfully', 'shop' => $shop], 201);
-    }
-
-    public function destroyShop($id)
-    {
-        if($this->AdminRepository->deleteShop($id)){
-            response()->json(['message' => 'Shop deleted successfully'], 201);
-        }
     }
 
     public function createProduct(Request $request){
@@ -124,5 +101,30 @@ class AdminController extends Controller
         if($this->AdminRepository->deleteProduct($id)){
             return;
         }
+    }
+
+    public function  index(){
+
+        $products = $this->AdminRepository->viewProducts();
+
+        return ;
+
+    }
+
+    public function edit(product $product)
+    {
+        $category = category::find($product->Category_id);
+        return view('pages.Edit',compact('product','category'));
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+
     }
 }

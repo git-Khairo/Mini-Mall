@@ -6,7 +6,7 @@ use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\repositoryInterface\ProductRepositoryInterface;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -36,5 +36,14 @@ class ProductController extends Controller
         $product = $this->ProductRepository->find($id);
 
         return response()->json(['message' => 'All products', 'products' => $product, 201]);
+    }
+
+    public function search(Request $request){
+        $name = $request->validate([
+           'name'=>'required',
+        ]);
+        $response= $this->ProductRepository->search($name);
+
+        return response()->json($response);
     }
 }

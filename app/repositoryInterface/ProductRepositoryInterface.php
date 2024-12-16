@@ -9,4 +9,5 @@ interface ProductRepositoryInterface
 
  public function all();
  public function find($id);
+ public function search($name);
 }

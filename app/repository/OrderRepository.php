@@ -35,6 +35,7 @@ class OrderRepository implements OrderRepositoryInterface
 
         $orders = Order::create([
             'user_id' => $id,
+            'shop_id' => $data['shop_id'],
             'products' => json_encode($data['products']),
             'status' => $data['status'],
             'total' => $data['total'],

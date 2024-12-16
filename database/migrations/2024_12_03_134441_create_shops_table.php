@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('logo');
             $table->string('address');
             $table->string('phonenumber');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
