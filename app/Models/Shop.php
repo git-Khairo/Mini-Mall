@@ -20,6 +20,7 @@ class Shop extends Model
          'logo',
          'address',
          'phonenumber',
+         'user_id',
      ];
 
      public function products(){

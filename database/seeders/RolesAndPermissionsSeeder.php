@@ -28,7 +28,7 @@ class RolesAndPermissionsSeeder extends Seeder
             ['name' => 'Admin 3', 'email' => 'admin3@example.com', 'password' => Hash::make('password'), 'phone' => '1234567893', 'address' => 'Address 4', 'image' => 'admin3.jpg'],
             ['name' => 'Admin 4', 'email' => 'admin4@example.com', 'password' => Hash::make('password'), 'phone' => '1234567894', 'address' => 'Address 5', 'image' => 'admin4.jpg'],
             ['name' => 'Admin 5', 'email' => 'admin5@example.com', 'password' => Hash::make('password'), 'phone' => '1234567895', 'address' => 'Address 6', 'image' => 'admin5.jpg'],
-            ['name' => 'admin 1', 'email' => 'admin6@example.com', 'password' => Hash::make('password'), 'phone' => '1234567896', 'address' => 'Address 7', 'image' => 'admin6.jpg'],
+            ['name' => 'admin 6', 'email' => 'admin6@example.com', 'password' => Hash::make('password'), 'phone' => '1234567896', 'address' => 'Address 7', 'image' => 'admin6.jpg'],
         ];
 
 // Assign roles to users

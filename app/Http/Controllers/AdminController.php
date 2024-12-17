@@ -32,7 +32,7 @@ class AdminController extends Controller
            if($user->hasRole('admin'))
             return redirect()->route('viewOrders');
            else
-               return ;
+               return redirect()->route('viewUsers');
         }else{
             return back()->withErrors([
                 'failed' => 'The provided credentials do not match our records'
@@ -49,9 +49,9 @@ class AdminController extends Controller
     }
 
     public function deleteOrder($id){
-        $order = $this->AdminRepository->deleteOrder($id);
+        $this->AdminRepository->deleteOrder($id);
 
-        return;
+        return redirect()->route('viewOrders');
     }
 
     public function orderConfirmation(Request $request,$id){
@@ -59,9 +59,19 @@ class AdminController extends Controller
             'status' => 'in:confirmed,cancelled',
         ]);
 
-        $order = $this->AdminRepository->orderConfirmation($validatedData, $id);
+        $this->AdminRepository->orderConfirmation($validatedData, $id);
 
-        return;
+        return redirect()->route('viewOrders');
+    }
+
+    public function orderSort(Request $request){
+        $validatedData = $request->validate([
+            'orderType' => 'in:confirmed,cancelled,pending,all',
+        ]);
+
+        $orders = $this->AdminRepository->orderSort($validatedData);
+
+        return view('pages.orders', ['orders' => $orders, 'option' => $validatedData['orderType']]);
     }
 
     public function createProduct(Request $request){
@@ -69,52 +79,52 @@ class AdminController extends Controller
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
             'amount' => 'required|integer',
-            'category' => 'required|string|max:255',
-            'shop' => 'required|string|max:255',
+            'categoryOption' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $product = $this->AdminRepository->createProduct($validatedData);
 
-        return;
+        return redirect()->route('viewProducts');
+    }
+
+    public function addProduct(){
+        $categories = Category::get();
+        return view('pages.addProduct', compact('categories'));
     }
 
     public function updateProduct(Request $request, $id){
         // Validate the data (optional but recommended)
         $validatedData = $request->validate([
-            'id' => 'required|numeric',
-            'name' => 'required|string|max:255',
-            'price' => 'required|numeric',
-            'amount' => 'required|integer',
-            'category' => 'required|string|max:255',
-            'shop' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'name' => 'string|max:255',
+            'price' => 'numeric',
+            'amount' => 'integer',
+            'categoryOption' => 'string|max:255',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $product = $this->AdminRepository->updateProduct($validatedData,$id);
+        $this->AdminRepository->updateProduct($validatedData,$id);
 
-        return;
+        return redirect()->route('viewProducts');
     }
 
-    public function destroyProduct($id)
-    {
+    public function editProduct(Product $product){
+        $categories = Category::get();
+        return view('pages.editProduct', compact('product', 'categories'));
+    }
+
+    public function destroyProduct($id){
         if($this->AdminRepository->deleteProduct($id)){
-            return;
+            return redirect()->route('viewProducts');
         }
     }
 
-    public function  index(){
+    public function  viewProducts(){
 
         $products = $this->AdminRepository->viewProducts();
 
-        return ;
+        return view('pages.products',compact('products'));
 
-    }
-
-    public function edit(product $product)
-    {
-        $category = category::find($product->Category_id);
-        return view('pages.Edit',compact('product','category'));
     }
 
     public function logout(Request $request){
@@ -124,7 +134,7 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return view('auth.login');
 
     }
 }

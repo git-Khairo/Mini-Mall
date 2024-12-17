@@ -9,14 +9,12 @@ use App\repository\OrderRepository;
 use App\repositoryInterface\CategoryRepositoryInterface;
 use App\repository\ProductRepository;
 use App\repository\ShopRepository;
-use App\repository\SuperAdminRepository;
 use App\repositoryInterface\ProductRepositoryInterface;
 use App\repository\UserRepository;
 use App\repositoryInterface\AdminRepositoryInterface;
 use App\repositoryInterface\FavoriteRepositoryInterface;
 use App\repositoryInterface\OrderRepositoryInterface;
 use App\repositoryInterface\ShopRepositoryInterface;
-use App\repositoryInterface\SuperAdminRepositoryInterface;
 use App\repositoryInterface\UserRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
@@ -34,7 +32,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(FavoriteRepositoryInterface::class,FavoriteRepository::class);
         $this->app->bind(OrderRepositoryInterface::class,OrderRepository::class);
         $this->app->bind(ShopRepositoryInterface::class,ShopRepository::class);
-        $this->app->bind(SuperAdminRepositoryInterface::class,SuperAdminRepository::class);
     }
 
     /**

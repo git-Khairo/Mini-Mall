@@ -37,7 +37,7 @@ class AdminRepository implements AdminRepositoryInterface
    }
 
    public function orderConfirmation($data, $id){
-    if ($data->fails()) {
+    if (empty($data)) {
         return response()->json(['errors' => $data->errors()], 422);
     }
 
@@ -51,13 +51,32 @@ class AdminRepository implements AdminRepositoryInterface
     return $order;
    }
 
+   public function orderSort($data){
+        $status = $data['orderType'];
+
+        $orders = Order::when($status !== 'all', function ($query) use ($status) {
+                $query->where('status', $status);
+            })
+            ->latest()
+            ->get();
+
+        return $orders;
+   }
+
    public function createProduct($data){
-        if ($data->fails()) {
+        if (empty($data)) {
             return response()->json(['errors' => $data->errors()], 422);
         }
 
         // Create the product
-        $product = Product::create($data);
+        $product = Product::create([
+            'name' => $data['name'],
+            'price' => $data['price'],
+            'amount' => $data['amount'],
+            'image' => $data['image'],
+            'Category_id' => $data['categoryOption'],
+            'shop_id' => Auth::user()->shop->id,
+        ]);
 
         return $product;
    }
@@ -71,12 +90,22 @@ class AdminRepository implements AdminRepositoryInterface
             return response()->json(['message' => 'Product not found'], 404);
         }
 
-        if ($data->fails()) {
+        if (empty($data)) {
             return response()->json(['errors' => $data->errors()], 422);
         }
 
         // Update the product fields
-        $product->update($data);
+        $updateData = array_filter([
+            'name' => $data['name'] ?? $product->name,
+            'price' => $data['price'] ?? $product->price,
+            'amount' => $data['amount'] ?? $product->amount,
+            'image' => $data['image'] ?? $product->image,
+            'Category_id' => $data['categoryOption'] ?? $product->Category_id,
+            'shop_id' => Auth::user()->shop->id,
+        ], fn($value) => $value !== null);
+    
+        // Update the product
+        $product->update($updateData);
 
         return $product;
    }
@@ -97,12 +126,18 @@ class AdminRepository implements AdminRepositoryInterface
     }
 
    public function createShop($data){
-    if ($data->fails()) {
+    if (empty($data)) {
         return response()->json(['errors' => $data->errors()], 422);
     }
 
     // Create the product
-    $shop = Shop::create($data);
+    $shop = Shop::create([
+        'name' => $data['name'],
+        'logo' => $data['logo'],
+        'address' => $data['address'],
+        'phonenumber' => $data['phonenumber'],
+        'user_id' => $data['adminOption'],
+    ]);
 
     return $shop;
    }
@@ -130,12 +165,10 @@ class AdminRepository implements AdminRepositoryInterface
    public function deleteShop($id){
     $shop = Shop::find($id);
 
-    // Check if the product exists
     if (!$shop) {
         return response()->json(['message' => 'Product not found'], 404);
     }
 
-    // Delete the product
     $shop->delete();
 
     return 'Shop deleted successfully';
@@ -152,7 +185,7 @@ class AdminRepository implements AdminRepositoryInterface
    }
 
    public function Register($data){
-       $imageName = Storage::disk('public')->put('images', $data->image);
+       $imageName = Storage::disk('public')->put('images', $data['image']);
 
        $data['image']= $imageName;
 
@@ -163,20 +196,24 @@ class AdminRepository implements AdminRepositoryInterface
        $user->assignRole($userRole);
 
        return $user;
-
    }
 
    public function viewUsers(){
-       $users = User::all();
+       $admin = User::role('admin')->get();
 
-       return $users;
+       $users = User::role('user')->get();
+
+       $allUsers = [
+        'admins' => $admin,
+        'users' => $users
+       ];
+
+       return $allUsers;
    }
 
    public function viewShops(){
-       $user=Auth::user();
+       $shops = Shop::latest()->get();
 
-       $shop=$user->shop;
-
-       return $shop;
+       return $shops;
    }
 }

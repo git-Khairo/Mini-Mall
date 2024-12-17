@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Shop;
+use App\Models\User;
 use App\repositoryInterface\AdminRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,6 @@ class SuperUserController extends Controller
         $this->AdminRepository = $AdminRepository;
     }
     public function Admin(Request $request){
-
         $data=$request->validate([
             'name'=>'required|max:255',
             'email'=>'required|email|unique:users',
@@ -27,27 +27,29 @@ class SuperUserController extends Controller
             'image'=>'required'
         ]);
 
-        $user=$this->AdminRepository->Register($data);
+        $this->AdminRepository->Register($data);
 
-        return;
+        return redirect()->route('viewUsers');
 
     }
 
-    public function viewShop(){
+    public function deleteAdmin($id){
+        $admin = User::find($id);
 
+        $admin->delete();
+
+        return redirect()->route('viewUsers');
+    }
+
+    public function viewShops(){
         $shops=$this->AdminRepository->viewShops();
-        return ;
+        return view('pages.shops', compact('shops'));
     }
 
-    public function edit(Shop $shop)
-    {
-
-        return view('pages.Edit',compact('shop'));
-    }
-    public function viewUser(){
-        $shop=$this->AdminRepository->viewUsers();
-
-        return ;
+    public function viewUsers(){
+        $users = $this->AdminRepository->viewUsers();
+        
+        return view('pages.users', compact('users'));
     }
     //make it only for the super admin
     public function createShop(Request $request){
@@ -56,11 +58,17 @@ class SuperUserController extends Controller
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'address' => 'required|string',
             'phonenumber' => 'required|integer',
+            'adminOption' => 'required|string',
         ]);
 
-        $shop = $this->AdminRepository->createShop($validatedData);
+        $this->AdminRepository->createShop($validatedData);
 
-        return;
+        return redirect()->route('viewShops');
+    }
+
+    public function addShop(){
+        $admins = User::Role('admin')->get();
+        return view('pages.addShop', compact('admins'));
     }
 
     // make it only for super user
@@ -82,7 +90,7 @@ class SuperUserController extends Controller
     public function destroyShop($id)
     {
         if($this->AdminRepository->deleteShop($id)){
-            response()->json(['message' => 'Shop deleted successfully'], 201);
+            return redirect()->route('viewShops');
         }
     }
 

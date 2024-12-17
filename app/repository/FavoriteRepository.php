@@ -20,9 +20,15 @@ class FavoriteRepository implements FavoriteRepositoryInterface
             return response()->json(['message' => 'User not found'], 404);
         }
 
-        $favorites = $user->favorite;
+        $favorites = $user->favorite()->with('product')->get();
 
-        return $favorites;
+        $updatedFavorites = $favorites->map(function ($favorite) {
+            $favoriteData = $favorite->toArray(); 
+            unset($favoriteData['product_id']); 
+            return $favoriteData;
+        });
+
+        return $updatedFavorites;
     }
 
     public function store($data, $id)

@@ -50,27 +50,6 @@ class OrderController extends Controller
         return response()->json(['message' => 'User orders retrieved successfully', 'orders' => $orders], 201);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Request $request)
-    {
-        if($this->OrderRepository->delete($request['id'])){
-            return response()->json(['message' => 'Order deleted successfully'], 201);
-        }
-    }
-
-    public function confirmation(Request $request){
-         // Validate the input data
-         $validatedData = $request->validate([
-            'order_id' => 'required|integer|exists:orders,id',
-            'status' => 'required|string|in:confirmed,cancelled',
-        ]);
-
-        $order = $this->OrderRepository->confirmation($validatedData);
-
-        return response()->json(['message' => 'order has been submitted', 'order' => $order],201);
-    }
 
     public function showDetails($id){
 

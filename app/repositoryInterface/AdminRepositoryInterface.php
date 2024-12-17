@@ -7,6 +7,7 @@ interface AdminRepositoryInterface
     public function viewOrders();
     public function deleteOrder($id);
     public function orderConfirmation($data, $id);
+    public function orderSort($data);
     public function createProduct($data);
     public function updateProduct($data, $id);
     public function deleteProduct($id);
