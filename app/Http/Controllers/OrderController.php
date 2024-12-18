@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
+use App\Models\Product;
 use App\repositoryInterface\OrderRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,20 +23,37 @@ class OrderController extends Controller
     {
         // Validate the input data
         $validatedData = $request->validate([
-            'shop_id'=>'required',
+            'shop_id' => 'required',
             'status' => 'required|string|in:pending,confirmed,cancelled',
             'total' => 'required|numeric|min:0',
             'products' => 'required|array',
             'products.*.id' => 'required|exists:products,id',
             'products.*.quantity' => 'required|integer|min:1',
         ]);
-
+    
+        $products = $validatedData['products'];
+        
+        // Check product availability and adjust stock
+        foreach ($products as $productData) {
+            $product = Product::find($productData['id']);
+    
+            if ($product->amount < $productData['quantity']) {
+                return response()->json(['message' => "Insufficient stock for product ID: {$product->id}",], 400);
+            }
+    
+            // Decrease product stock
+            $product->amount -= $productData['quantity'];
+            $product->save();
+        }
+    
+        // Get authenticated user ID
         $userId = Auth::id();
-
+    
+        // Create the order
         $orders = $this->OrderRepository->create($validatedData, $userId);
-
-        return response()->json(['message' => 'Order created', 'orders' => $orders],201);
-    }
+    
+        return response()->json(['message' => 'Order created','orders' => $orders], 201);
+    } 
 
     /**
      * Display the specified resource.

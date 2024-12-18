@@ -5,9 +5,6 @@ namespace App\repository;
 use App\Models\Order;
 use App\Models\User;
 use App\repositoryInterface\OrderRepositoryInterface;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Validator;
 
 class OrderRepository implements OrderRepositoryInterface
 {
@@ -32,6 +29,8 @@ class OrderRepository implements OrderRepositoryInterface
         if (empty($data)) {
             return response()->json(['errors' => $data->errors()], 422);
         }
+
+        
 
         $orders = Order::create([
             'user_id' => $id,
