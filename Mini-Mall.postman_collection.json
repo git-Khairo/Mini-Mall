@@ -121,6 +121,33 @@
 				"url": null
 			},
 			"response": []
+		},
+		{
+			"name": "favorite",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "favorite/store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "favorite/delete/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": null
+			},
+			"response": []
 		}
 	]
 }
