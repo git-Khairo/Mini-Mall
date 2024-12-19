@@ -29,8 +29,11 @@ class UserRepository implements UserRepositoryInterface
 
    public function login(array $data){
 
-       $user=User::where('email',$data['email'])->first();
 
+       $user=User::where('email',$data['email'])->first();
+        if(!$user){
+          $user=User::where('phone',$data['email'])->first();
+        }
        if(!$user||!Hash::check($data['password'],$user->password)){
            return [
              'message'=>'wrong password or Email'
