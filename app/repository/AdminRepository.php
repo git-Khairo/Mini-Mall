@@ -54,14 +54,9 @@ class AdminRepository implements AdminRepositoryInterface
 
     // Update the status of the order
     $order->status = $data['status'];
-    $order->save();
+    $order->save(); //this triggers the observer
 
-    // $deviceToken = $order->user->device_token;
-
-    // $title = "Order Update";
-    // $body = "Your order has been " . $data['status'];
-    // $this->fcmController->sendNotification($deviceToken, $title, $body, ['order_id' => $order->id]);
-
+   
     return $order;
    }
 
