@@ -8,7 +8,7 @@
             <div class="text-center space-y-2 sm:text-left">
                 <div class="space-y-0.5">
                     <p class="text-lg text-black font-semibold">
-                        {{ $admin->name }}
+                        {{ $admin->firstName." ".$admin->lastName }}
                     </p>
                     <p class="text-black font-medium text-sm">
                         {{ $admin->email }}
@@ -40,7 +40,7 @@
             <div class="text-center space-y-2 sm:text-left">
                 <div class="space-y-0.5">
                     <p class="text-lg text-black font-semibold">
-                        {{ $user->name }}
+                        {{ $user->firstName." ".$user->lastName }}
                     </p>
                     <p class="text-black font-medium text-sm">
                         {{ $user->email }}

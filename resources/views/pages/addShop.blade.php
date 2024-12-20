@@ -19,7 +19,7 @@
                 <label for="adminOption" class="block text-gray-700">Choose Admin</label>
                 <select name="adminOption" id="adminOption" class="w-full px-4 py-2 border rounded">
                     @foreach ($admins as $admin)
-                        <option value="{{ $admin->id }}">{{ $admin->name }}</option>
+                        <option value="{{ $admin->id }}">{{ $admin->firstName." ".$admin->lastName }}</option>
                     @endforeach()
                 </select>
             </div>

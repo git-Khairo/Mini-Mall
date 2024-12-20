@@ -2,6 +2,7 @@
 
 namespace App\repository;
 
+use App\Http\Controllers\FcmController;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Shop;
@@ -13,6 +14,13 @@ use Spatie\Permission\Models\Role;
 
 class AdminRepository implements AdminRepositoryInterface
 {
+    protected $fcmController;
+
+    public function __construct(FcmController $fcmController)
+    {
+        $this->fcmController = $fcmController;
+    }
+
     public function viewOrders(){
         $user=Auth::user();
 
@@ -47,6 +55,12 @@ class AdminRepository implements AdminRepositoryInterface
     // Update the status of the order
     $order->status = $data['status'];
     $order->save();
+
+    // $deviceToken = $order->user->device_token;
+
+    // $title = "Order Update";
+    // $body = "Your order has been " . $data['status'];
+    // $this->fcmController->sendNotification($deviceToken, $title, $body, ['order_id' => $order->id]);
 
     return $order;
    }

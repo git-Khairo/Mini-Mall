@@ -4,8 +4,12 @@
         <form action="{{ route('addAdmin') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-4">
-                <label for="name" class="block text-gray-700">Admin Name</label>
-                <input type="text" id="name" name="name"class="w-full px-4 py-2 border rounded">
+                <label for="firstName" class="block text-gray-700">Admin First Name</label>
+                <input type="text" id="firstName" name="firstName"class="w-full px-4 py-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <label for="lastName" class="block text-gray-700">Admin Last Name</label>
+                <input type="text" id="lastName" name="lastName"class="w-full px-4 py-2 border rounded">
             </div>
             <div class="mb-4">
                 <label for="email" class="block text-gray-700">Admin email</label>

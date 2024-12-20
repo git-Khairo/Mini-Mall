@@ -17,7 +17,7 @@ class UserRepository implements UserRepositoryInterface
 
        $user->assignRole($userRole);
 
-       $token=$user->createToken($user->name)->plainTextToken;
+       $token=$user->createToken($user->firstName.$user->lastName)->plainTextToken;
 
        $response=[
          'user' =>$user,
@@ -39,7 +39,7 @@ class UserRepository implements UserRepositoryInterface
              'message'=>'wrong password or Email'
            ];
        }
-       $token=$user->createToken($user->name)->plainTextToken;
+       $token=$user->createToken($user->firstName.$user->lastName)->plainTextToken;
 
        $response=[
            'user' =>$user,
