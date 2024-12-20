@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\repository\UserRepository;
 use App\repositoryInterface\UserRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -48,5 +49,13 @@ class AuthController extends Controller
         return [
             'message'=>'You are logged out'
         ];
+    }
+
+    public function getUser(){
+        $userId = Auth::id();
+        
+        $user = $this->userRepository->getUser($userId);
+
+        return response()->json(['message' => 'User successfully', 'user' => $user], 201);
     }
 }
