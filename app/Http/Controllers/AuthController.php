@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\repository\UserRepository;
 use App\repositoryInterface\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,11 +19,14 @@ class AuthController extends Controller
             'firstName'=>'required|max:255',
             'lastName'=>'required|max:255',
             'email'=>'required|email|unique:users',
+            'fcm_token'=>'nullable',
             'password'=>'required',
-            'phone'=>'required|unique:users|numeric',
+            'phone'=>'required|unique:users',
             'address'=>'required',
-            'image'=>'required'
+            'image'=>'required',
         ]);
+
+        $data['activity'] = 'active';
 
         $user=$this->userRepository->Register($data);
 
@@ -34,7 +36,8 @@ class AuthController extends Controller
     public  function login(Request $request){
 
         $data=$request->validate([
-            'email'=>'required|',
+            'email'=>'required',
+            'fcm_token'=>'nullable',
             'password'=>'required',
         ]);
 

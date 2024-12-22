@@ -74,4 +74,10 @@ class OrderController extends Controller
 
         return response()->json(['message' => 'order details', 'order' => $order],201);
     }
+
+    public function delete($id){
+        $this->OrderRepository->delete($id);
+
+        return response()->json(['message' => 'Order Deleted'], 201);
+    }
 }

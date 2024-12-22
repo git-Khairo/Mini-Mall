@@ -13,9 +13,9 @@ Route::post('/login', [AdminController::class, 'login'])->name('adminLogin');
 
 Route::middleware('auth')->group(function(){
 
-    Route::post('/Shops/store',[ShopController::class, 'store']);
-    Route::put('/Shops/update/{id}',[ShopController::class, 'update']);
-    Route::delete('/Shops/delete/{id}',[ShopController::class, 'destroy']);
+    // Route::post('/Shops/store',[ShopController::class, 'store']);
+    // Route::put('/Shops/update/{id}',[ShopController::class, 'update']);
+    // Route::delete('/Shops/delete/{id}',[ShopController::class, 'destroy']);
     
     Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 });
@@ -37,6 +37,8 @@ Route::middleware(RoleMiddleware::class.':admin')->group(function(){
 
 Route::middleware([RoleMiddleware::class.':super admin'])->group(function(){
     Route::get('/users', [SuperUserController::class, 'viewUsers'])->name('viewUsers');
+    Route::post('/users/block/{id}', [SuperUserController::class, 'blockUser'])->name('blockUser');
+    Route::post('/users/unblock/{id}', [SuperUserController::class, 'unblockUser'])->name('unBlockUser');
     Route::view('/Admin/Create', 'pages.addAdmin')->name('addAdminPage');
     Route::post('/Admin/Create', [SuperUserController::class, 'Admin'])->name('addAdmin');
     Route::delete('/Admin/Delete/{id}', [SuperUserController::class, 'deleteAdmin'])->name('deleteAdmin');

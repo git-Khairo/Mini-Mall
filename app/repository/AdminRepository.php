@@ -2,12 +2,12 @@
 
 namespace App\repository;
 
-use App\Http\Controllers\FcmController;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Shop;
 use App\Models\User;
 use App\repositoryInterface\AdminRepositoryInterface;
+use App\Services\FcmService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
@@ -16,17 +16,17 @@ class AdminRepository implements AdminRepositoryInterface
 {
     protected $fcmController;
 
-    public function __construct(FcmController $fcmController)
+    public function __construct(FcmService $fcmController)
     {
         $this->fcmController = $fcmController;
     }
 
     public function viewOrders(){
         $user=Auth::user();
+        
+        $orders = $user->shop->orders;
 
-        $shop=$user->shop;
-
-        return $shop->orders;
+        return $orders;
     }
 
     public function deleteOrder($id){
@@ -210,7 +210,7 @@ class AdminRepository implements AdminRepositoryInterface
    public function viewUsers(){
        $admin = User::role('admin')->get();
 
-       $users = User::role('user')->get();
+       $users = User::role('user')->orderBy('activity', 'asc')->get();
 
        $allUsers = [
         'admins' => $admin,

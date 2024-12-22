@@ -6,14 +6,23 @@
             <div class="mb-4">
                 <label for="name" class="block text-gray-700">product Name</label>
                 <input type="text" id="name" name="name"class="w-full px-4 py-2 border rounded">
+                @error('name')
+                    <p class="text-sm text-red-500">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="price" class="block text-gray-700">Price</label>
                 <input type="text" id="price" name="price" class="w-full px-4 py-2 border rounded">
+                @error('price')
+                    <p class="text-sm text-red-500">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="amount" class="block text-gray-700">Stock Amount</label>
                 <input type="text" id="amount" name="amount" class="w-full px-4 py-2 border rounded">
+                @error('amount')
+                    <p class="text-sm text-red-500">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="amount" class="block text-gray-700">Choose Category</label>
@@ -22,10 +31,16 @@
                         <option value="{{ $category->id }}">{{ $category->type }}</option>
                     @endforeach()
                 </select>
+                @error('categoryOption')
+                    <p class="text-sm text-red-500">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="image" class="block text-gray-700">Product Image</label>
                 <input type="file" id="image" name="image" class="w-full px-4 py-2 border rounded">
+                @error('image')
+                    <p class="text-sm text-red-500">{{ $message }}</p>
+                @enderror
             </div>
             <div class="flex justify-end">
                 <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add</button>

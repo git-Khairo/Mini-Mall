@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\Shop;
 use App\Models\User;
 use App\repositoryInterface\AdminRepositoryInterface;
 use Illuminate\Http\Request;
@@ -23,10 +20,12 @@ class SuperUserController extends Controller
             'lastName'=>'required|max:255',
             'email'=>'required|email|unique:users',
             'password'=>'required|confirmed',
-            'phone'=>'required|unique:users|numeric',
+            'phone'=>'required|unique:users',
             'address'=>'required',
             'image'=>'required'
         ]);
+
+        $data['activity'] = 'active';
 
         $this->AdminRepository->Register($data);
 
@@ -38,6 +37,24 @@ class SuperUserController extends Controller
         $admin = User::find($id);
 
         $admin->delete();
+
+        return redirect()->route('viewUsers');
+    }
+
+    public function blockUser($id){
+        $user = User::find($id);
+
+        $user->activity = 'inactive';
+        $user->save();
+
+        return redirect()->route('viewUsers');
+    }
+
+    public function unblockUser($id){
+        $user = User::find($id);
+
+        $user->activity = 'active';
+        $user->save();
 
         return redirect()->route('viewUsers');
     }
@@ -56,9 +73,9 @@ class SuperUserController extends Controller
     public function createShop(Request $request){
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif',
             'address' => 'required|string',
-            'phonenumber' => 'required|integer',
+            'phonenumber' => 'required',
             'adminOption' => 'required|string',
         ]);
 
@@ -68,7 +85,7 @@ class SuperUserController extends Controller
     }
 
     public function addShop(){
-        $admins = User::Role('admin')->get();
+        $admins = User::Role('admin')->whereDoesntHave('shop')->get();
         return view('pages.addShop', compact('admins'));
     }
 
@@ -79,7 +96,7 @@ class SuperUserController extends Controller
             'name' => 'required|string|max:255',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'address' => 'required|string',
-            'phonenumber' => 'required|integer',
+            'phonenumber' => 'required',
         ]);
 
         $shop = $this->AdminRepository->updateShop($validatedData,$id);

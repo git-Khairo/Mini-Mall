@@ -32,7 +32,7 @@ class AdminController extends Controller
            if($user->hasRole('admin'))
             return redirect()->route('viewOrders');
            else
-               return redirect()->route('viewUsers');
+            return redirect()->route('viewUsers');
         }else{
             return back()->withErrors([
                 'failed' => 'The provided credentials do not match our records'
@@ -42,7 +42,6 @@ class AdminController extends Controller
 
     public function viewOrders()
     {
-        //if()
         $orders = $this->AdminRepository->viewOrders();
 
         return view('pages.orders', ['orders' => $orders, 'option' => 'all']);

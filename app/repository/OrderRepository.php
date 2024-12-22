@@ -55,4 +55,18 @@ class OrderRepository implements OrderRepositoryInterface
         // Return the order details
         return $order;
     }
+
+    public function delete($id){
+        $order = Order::find($id);
+
+       // Check if the order exists
+       if (!$order) {
+           return response()->json(['message' => 'Order not found'], 404);
+       }
+
+       // Delete the order
+       $order->delete();
+
+        return $order;
+    }
 }

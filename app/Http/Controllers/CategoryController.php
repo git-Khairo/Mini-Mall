@@ -33,9 +33,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $ProductsAndShops = $this->CategoryRepository->find($id);
+        $Shops = $this->CategoryRepository->find($id);
 
-        return response()->json(['messgae' => 'Category ' .$id. ' has been passed', 'ProductsAndShops' => $ProductsAndShops,201]);
+        return response()->json(['messgae' => 'Category ' .$id. ' has been passed', 'Shops' => $Shops,201]);
     }
 
 }

@@ -15,19 +15,13 @@ class CategoryRepository implements CategoryRepositoryInterface
  public function find($id){
      $category = Category::find($id);
 
-   //  $products=$category->products;
+    $products=$category->products;
 
-    //  $shops = $products
-    //     ->pluck('shop')
-    //     ->unique()
-    //     ->values();
+     $shops = $products
+        ->pluck('shop')
+        ->unique()
+        ->values();
 
-     $response=[
-         'category'=>$category,
-         //'products'=>$products,
-        //  'shops'    => $shops,
-     ];
-
-     return $response;
+     return $shops;
  }
 }

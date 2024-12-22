@@ -32,6 +32,7 @@ Route::group(['middleware'=>['auth:sanctum']], function (){
     Route::post('/favorite/store',[FavoriteController::class, 'store']);
     Route::delete('/favorite/delete/{id}',[FavoriteController::class, 'destroy']);
     Route::post('/Orders/store',[OrderController::class, 'store']);
+    Route::delete('/Orders/delete/{id}',[OrderController::class, 'delete']);
     Route::get('/MyOrders',[OrderController::class, 'show']);
     Route::get('/MyOrders/{id}',[OrderController::class, 'showDetails']);
 });
