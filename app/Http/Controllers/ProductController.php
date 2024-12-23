@@ -24,7 +24,7 @@ class ProductController extends Controller
     {
         $products = $this->ProductRepository->all();
 
-        return response()->json(['message' => 'All products', 'products' => $products, 201]);
+        return response()->json(['message' => 'All products', 'products' => $products],201);
     }
 
 
@@ -35,7 +35,7 @@ class ProductController extends Controller
     {
         $product = $this->ProductRepository->find($id);
 
-        return response()->json(['message' => 'All products', 'products' => $product, 201]);
+        return response()->json(['message' => 'All products', 'products' => $product],201);
     }
 
     public function search(Request $request){

@@ -35,7 +35,7 @@ class CategoryController extends Controller
     {
         $Shops = $this->CategoryRepository->find($id);
 
-        return response()->json(['messgae' => 'Category ' .$id. ' has been passed', 'Shops' => $Shops,201]);
+        return response()->json(['messgae' => 'Category ' .$id. ' has been passed', 'Shops' => $Shops],201);
     }
 
 }

@@ -8,146 +8,633 @@
 		{
 			"name": "register",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
+				"method": "POST",
+				"header": [{
+					"Content-type": "application/json"
+				}],
+				"url": "https://127.0.0.1:8000/api/register",
+				"body": {
+					"firstName": "John",
+					"lastName": "Doe",
+					"email": "john.doe@example.com",
+					"fcm-token": null,
+					"password": "password",
+					"phone": "1234567898",
+					"address": "123 Main Street, Springfield",
+					"image": "https://example.com/image.jpg"
+				  }
 			},
-			"response": []
+			"response": [{
+				"message": "User registered successfully",
+				"user": {
+					"user": {
+						"firstName": "John",
+						"lastName": "Doe",
+						"email": "john.doe@example.com",
+						"phone": "0987654321",
+						"address": "123 Main Street, Springfield",
+						"image": "https://example.com/image.jpg",
+						"activity": "active",
+						"updated_at": "2024-12-23T10:20:25.000000Z",
+						"created_at": "2024-12-23T10:20:25.000000Z",
+						"id": 12
+					},
+					"token": "1|ee9vCMica3r83aL5JRylEaz4ZkzvraExPWXQ0tMw0a6ddec3"
+				}
+			}]
 		},
 		{
 			"name": "login",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
+				"method": "POST",
+				"header": [{
+					"Content-type": "application/json"
+				}],
+				"url": "https://127.0.0.1:8000/api/login",
+				"body": {
+					"email": "john.doe@example.com",
+					"password": "password"
+				  }
 			},
-			"response": []
+			"response": [{
+				"message": "User logged in successfully",
+				"user": {
+					"user": {
+						"id": 12,
+						"firstName": "John",
+						"lastName": "Doe",
+						"fcm-token": null,
+						"email": "john.doe@example.com",
+						"email_verified_at": null,
+						"activity": "active",
+						"phone": "0987654321",
+						"address": "123 Main Street, Springfield",
+						"image": "https://example.com/image.jpg",
+						"created_at": "2024-12-23T10:20:25.000000Z",
+						"updated_at": "2024-12-23T10:20:25.000000Z"
+					},
+					"token": "2|bapLQZP9Ju4HBxu8943uMrynxJs8xet3ZsqQ4W7f47cbe245"
+				}
+			}]
 		},
 		{
 			"name": "logout",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "OrderStor",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "search",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "Shop/{id}",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "categories",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "categories/{id}",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "Shop",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "products",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "products/{id}",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "myorder",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "myorder/{id}",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "favorite",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "favorite/store",
-			"request": {
 				"method": "POST",
-				"header": [],
-				"url": null
+				"header": [{
+					"Content-type": "application/json",
+					"Token": "Bearer <token>"
+				}],
+				"url": "https://127.0.0.1:8000/api/logout",
+				"body": {
+	
+				  }
 			},
-			"response": []
+			"response": [{
+				"message": "You are logged out"
+			}]
 		},
 		{
-			"name": "favorite/delete/{id}",
+			"name": "get all categories",
+			"request": {
+				"method": "GET",
+				"header": [{
+					"Content-type": "application/json"
+				}],
+				"url": "https://127.0.0.1:8000/api/categories",
+				"body": {
+	
+				  }
+			},
+			"response": [{
+				"messgae": "all Categories",
+				"categories": [
+					{
+						"id": 1,
+						"type": "Clothes",
+						"created_at": null,
+						"updated_at": null
+					},
+					{
+						"id": 2,
+						"type": "Gifts",
+						"created_at": null,
+						"updated_at": null
+					},
+					{
+						"id": 3,
+						"type": "Shoes",
+						"created_at": null,
+						"updated_at": null
+					}
+				],
+				"0": 201
+			}]
+		},
+		{
+			"name": "get a spacific category",
+			"request": {
+				"method": "GET",
+				"header": [{
+					"Content-type": "application/json"
+				}],
+				"url": "https://127.0.0.1:8000/api/categories/{id}",
+				"body": {
+	
+				  }
+			},
+			"response": [{
+				"messgae": "Category 1 has been passed",
+				"Shops": [
+					{
+						"id": 9,
+						"name": "XO",
+						"logo": "xo.jpeg",
+						"address": "Damascus, Abo rummaneh",
+						"phonenumber": "0942-739-198",
+						"user_id": 10,
+						"created_at": "2024-12-22T22:26:21.000000Z",
+						"updated_at": "2024-12-22T22:26:21.000000Z"
+					},
+					{
+						"id": 10,
+						"name": "Zara",
+						"logo": "zara.jpeg",
+						"address": "Damascus",
+						"phonenumber": "0951-589-394",
+						"user_id": 11,
+						"created_at": "2024-12-22T22:26:21.000000Z",
+						"updated_at": "2024-12-22T22:26:21.000000Z"
+					},
+					{
+						"id": 8,
+						"name": "Talis",
+						"logo": "talis.jpeg",
+						"address": "Damascus, Mazzeh",
+						"phonenumber": "0937-195-389",
+						"user_id": 9,
+						"created_at": "2024-12-22T22:26:21.000000Z",
+						"updated_at": "2024-12-22T22:26:21.000000Z"
+					},
+					{
+						"id": 3,
+						"name": "Casucci",
+						"logo": "casucci.jpeg",
+						"address": "Damascus, Salheyah",
+						"phonenumber": "0962-938-140",
+						"user_id": 4,
+						"created_at": "2024-12-22T22:26:21.000000Z",
+						"updated_at": "2024-12-22T22:26:21.000000Z"
+					}
+				]
+			}]
+		},
+		{
+			"name": "store the user's favorite products",
+			"request": {
+				"method": "GET",
+				"header": [{
+					"Content-type": "application/json",
+					"Token": "Bearer <token>"
+				}],
+				"url": "https://127.0.0.1:8000/api/favorite/store",
+				"body": {
+					"productId":1
+				  }
+			},
+			"response": [{
+				"message": "Favorite stored successfully",
+				"favorite": {
+					"product_id": 1,
+					"user_id": 12,
+					"updated_at": "2024-12-23T10:35:57.000000Z",
+					"created_at": "2024-12-23T10:35:57.000000Z",
+					"id": 1
+				}
+			}]
+		},
+		{
+			"name": "view the user's favorite product",
+			"request": {
+				"method": "GET",
+				"header": [{
+					"Content-type": "application/json",
+					"Token": "Bearer <token>"
+				}],
+				"url": "https://127.0.0.1:8000/api/favorite",
+				"body": {
+					
+				  }
+			},
+			"response": [{
+				"message": "Favorites Details",
+				"favorite": [
+					{
+						"id": 1,
+						"user_id": 12,
+						"created_at": "2024-12-23T10:35:57.000000Z",
+						"updated_at": "2024-12-23T10:35:57.000000Z",
+						"product": {
+							"id": 1,
+							"name": "Gift Box",
+							"price": "9.99",
+							"image": "box.jpeg",
+							"amount": 50,
+							"Category_id": 2,
+							"shop_id": 6,
+							"created_at": "2024-12-22T22:26:25.000000Z",
+							"updated_at": "2024-12-22T22:26:25.000000Z"
+						}
+					}
+				]
+			}]
+		},
+		{
+			"name": "delete the user's favorite product",
 			"request": {
 				"method": "DELETE",
-				"header": [],
-				"url": null
+				"header": [{
+					"Content-type": "application/json",
+					"Token": "Bearer <token>"
+				}],
+				"url": "https://127.0.0.1:8000/api/favorite/delete/{id}",
+				"body": {
+					
+				  }
 			},
-			"response": []
+			"response": [{
+				"message": "Favorite deleted",
+				"favorite": {
+					"id": 1,
+					"product_id": 1,
+					"user_id": 12,
+					"created_at": "2024-12-23T10:35:57.000000Z",
+					"updated_at": "2024-12-23T10:35:57.000000Z"
+				}
+			}]
+		},
+		{
+			"name": "store the user's order",
+			"request": {
+				"method": "POST",
+				"header": [{
+					"Content-type": "application/json",
+					"Token": "Bearer <token>"
+				}],
+				"url": "https://127.0.0.1:8000/api/Orders/store",
+				"body": {
+					"status": "pending",
+					"total": 100.50,
+					"shop_id": 1,
+					"products": [
+					  {
+						"id": 2,
+						"quantity": 2
+					  },
+					  {
+						"id": 1,
+						"quantity": 6
+					  }
+					]
+				  }
+			},
+			"response": [{
+				"message": "Order created",
+				"orders": {
+					"user_id": 12,
+					"shop_id": 1,
+					"products": "[{\"id\":2,\"quantity\":2},{\"id\":1,\"quantity\":6}]",
+					"status": "pending",
+					"total": 100.5,
+					"updated_at": "2024-12-23T10:44:29.000000Z",
+					"created_at": "2024-12-23T10:44:29.000000Z",
+					"id": 1
+				}
+			}]
+		},
+		{
+			"name": "view the user's all orders",
+			"request": {
+				"method": "GET",
+				"header": [{
+					"Content-type": "application/json",
+					"Token": "Bearer <token>"
+				}],
+				"url": "https://127.0.0.1:8000/api/MyOrders",
+				"body": {
+					
+				  }
+			},
+			"response": [{
+				"message": "User orders retrieved successfully",
+				"orders": [
+					{
+						"id": 1,
+						"user_id": 12,
+						"shop_id": 1,
+						"products": [
+							{
+								"id": 2,
+								"quantity": 2,
+								"details": {
+									"name": "Butterfly Bracelet",
+									"price": "19.99",
+									"image": "bracelet.jpeg"
+								}
+							},
+							{
+								"id": 1,
+								"quantity": 6,
+								"details": {
+									"name": "Gift Box",
+									"price": "9.99",
+									"image": "box.jpeg"
+								}
+							}
+						],
+						"status": "pending",
+						"total": 100.5,
+						"created_at": "2024-12-23T10:44:29.000000Z",
+						"updated_at": "2024-12-23T10:44:29.000000Z"
+					}
+				]
+			}]
+		},
+		{
+			"name": "view the user's order details",
+			"request": {
+				"method": "GET",
+				"header": [{
+					"Content-type": "application/json",
+					"Token": "Bearer <token>"
+				}],
+				"url": "https://127.0.0.1:8000/api/MyOrders/{id}",
+				"body": {
+					
+				  }
+			},
+			"response": [{
+				"message": "order details",
+				"order": {
+					"id": 1,
+					"user_id": 12,
+					"shop_id": 1,
+					"products": [
+						{
+							"id": 2,
+							"quantity": 2,
+							"details": {
+								"name": "Butterfly Bracelet",
+								"price": "19.99",
+								"image": "bracelet.jpeg"
+							}
+						},
+						{
+							"id": 1,
+							"quantity": 6,
+							"details": {
+								"name": "Gift Box",
+								"price": "9.99",
+								"image": "box.jpeg"
+							}
+						}
+					],
+					"status": "pending",
+					"total": 100.5,
+					"created_at": "2024-12-23T10:44:29.000000Z",
+					"updated_at": "2024-12-23T10:44:29.000000Z"
+				}
+			}]
+		},
+		{
+			"name": "get the user's details",
+			"request": {
+				"method": "GET",
+				"header": [{
+					"Content-type": "application/json",
+					"Token": "Bearer <token>"
+				}],
+				"url": "https://127.0.0.1:8000/api/user",
+				"body": {
+					
+				  }
+			},
+			"response": [{
+				"message": "User successfully",
+				"user": {
+					"id": 12,
+					"firstName": "John",
+					"lastName": "Doe",
+					"fcm-token": null,
+					"email": "john.doe@example.com",
+					"email_verified_at": null,
+					"activity": "active",
+					"phone": "0987654321",
+					"address": "123 Main Street, Springfield",
+					"image": "https://example.com/image.jpg",
+					"created_at": "2024-12-23T10:20:25.000000Z",
+					"updated_at": "2024-12-23T10:20:25.000000Z"
+				}
+			}]
+		},
+		{
+			"name": "delete the user's order",
+			"request": {
+				"method": "DELETE",
+				"header": [{
+					"Content-type": "application/json",
+					"Token": "Bearer <token>"
+				}],
+				"url": "https://127.0.0.1:8000/api/Orders/delete/{id}",
+				"body": {
+					
+				  }
+			},
+			"response": [{
+				"message": "Order Deleted"
+			}]
+		},
+		{
+			"name": "get all products",
+			"request": {
+				"method": "GET",
+				"header": [{
+					"Content-type": "application/json"
+				}],
+				"url": "https://127.0.0.1:8000/api/products",
+				"body": {
+					
+				  }
+			},
+			"response": [{
+				"message": "All products",
+				"products": [
+					{
+						"id": 1,
+						"name": "Gift Box",
+						"price": "9.99",
+						"image": "box.jpeg",
+						"amount": 44,
+						"Category_id": 2,
+						"shop_id": 6,
+						"created_at": "2024-12-22T22:26:25.000000Z",
+						"updated_at": "2024-12-23T10:44:29.000000Z"
+					},
+					{
+						"id": 2,
+						"name": "Butterfly Bracelet",
+						"price": "19.99",
+						"image": "bracelet.jpeg",
+						"amount": 48,
+						"Category_id": 2,
+						"shop_id": 4,
+						"created_at": "2024-12-22T22:26:25.000000Z",
+						"updated_at": "2024-12-23T10:44:29.000000Z"
+					},
+					{
+						"id": 3,
+						"name": "Happy Gloves",
+						"price": "9.99",
+						"image": "gloves.jpeg",
+						"amount": 50,
+						"Category_id": 2,
+						"shop_id": 4,
+						"created_at": "2024-12-22T22:26:25.000000Z",
+						"updated_at": "2024-12-22T22:26:25.000000Z"
+					}
+				]
+			}]
+		},
+		{
+			"name": "get a spacific product",
+			"request": {
+				"method": "GET",
+				"header": [{
+					"Content-type": "application/json"
+				}],
+				"url": "https://127.0.0.1:8000/api/products/{id}",
+				"body": {
+					
+				  }
+			},
+			"response": [{
+				"message": "All products",
+				"products": {
+					"id": 30,
+					"name": "Casual Jacket",
+					"price": "29.99",
+					"image": "jacket4.jpeg",
+					"amount": 50,
+					"Category_id": 1,
+					"shop_id": 3,
+					"created_at": "2024-12-22T22:26:25.000000Z",
+					"updated_at": "2024-12-22T22:26:25.000000Z"
+				}
+			}]
+		},
+		{
+			"name": "get all shops",
+			"request": {
+				"method": "GET",
+				"header": [{
+					"Content-type": "application/json"
+				}],
+				"url": "https://127.0.0.1:8000/api/Shops",
+				"body": {
+					
+				  }
+			},
+			"response": [{
+				"message": "All shops delievered",
+				"shops": [
+					{
+						"id": 1,
+						"name": "Nike",
+						"logo": "nike.jpeg",
+						"address": "Damascus, Shaalan",
+						"phonenumber": "0951-584-193",
+						"user_id": 2,
+						"created_at": "2024-12-22T22:26:21.000000Z",
+						"updated_at": "2024-12-22T22:26:21.000000Z"
+					},
+					{
+						"id": 2,
+						"name": "Adidas",
+						"logo": "adidas.jpeg",
+						"address": "Damascus, Hamra",
+						"phonenumber": "0935-692-420",
+						"user_id": 3,
+						"created_at": "2024-12-22T22:26:21.000000Z",
+						"updated_at": "2024-12-22T22:26:21.000000Z"
+					}
+				]
+			}]
+		},
+		{
+			"name": "get a spacific shop details",
+			"request": {
+				"method": "GET",
+				"header": [{
+					"Content-type": "application/json"
+				}],
+				"url": "https://127.0.0.1:8000/api/Shops/{id}",
+				"body": {
+					
+				  }
+			},
+			"response": [{
+				"message": "shops is delievered",
+				"shop": {
+					"id": 7,
+					"name": "Stickers World",
+					"logo": "stickers-world.jpeg",
+					"address": "Damascus, Maydan",
+					"phonenumber": "0948-912-765",
+					"user_id": 8,
+					"created_at": "2024-12-22T22:26:21.000000Z",
+					"updated_at": "2024-12-22T22:26:21.000000Z"
+				}
+			}]
+		},
+		{
+			"name": "seach",
+			"request": {
+				"method": "GET",
+				"header": [{
+					"Content-type": "application/json"
+				}],
+				"url": "https://127.0.0.1:8000/api/seach",
+				"body": {
+					"name":"zara"
+				}
+			},
+			"response": [{
+				"product": [
+					{
+						"id": 6,
+						"name": "Zara Pijama",
+						"price": "29.99",
+						"image": "pijama.jpeg",
+						"amount": 50,
+						"Category_id": 1,
+						"shop_id": 10,
+						"created_at": "2024-12-22T22:26:25.000000Z",
+						"updated_at": "2024-12-22T22:26:25.000000Z"
+					}
+				],
+				"shop": [
+					{
+						"id": 10,
+						"name": "Zara",
+						"logo": "zara.jpeg",
+						"address": "Damascus",
+						"phonenumber": "0951-589-394",
+						"user_id": 11,
+						"created_at": "2024-12-22T22:26:21.000000Z",
+						"updated_at": "2024-12-22T22:26:21.000000Z"
+					}
+				]
+			}]
 		}
 	]
 }

@@ -24,7 +24,7 @@ class ShopController extends Controller
     {
         $shops = $this->ShopRepository->all();
 
-        return response()->json(['message' => 'All shops delievered', 'shops' => $shops,201]);
+        return response()->json(['message' => 'All shops delievered', 'shops' => $shops],201);
     }
 
     /**
@@ -34,6 +34,6 @@ class ShopController extends Controller
     {
         $shop = $this->ShopRepository->show($id);
 
-        return response()->json(['message' => 'shops is delievered', 'shop' => $shop,201]);
+        return response()->json(['message' => 'shops is delievered', 'shop' => $shop],201);
     }
 }
