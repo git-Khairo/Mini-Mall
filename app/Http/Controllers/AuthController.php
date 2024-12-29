@@ -23,7 +23,7 @@ class AuthController extends Controller
             'password'=>'required',
             'phone'=>'required|unique:users',
             'address'=>'required',
-            'image'=>'required',
+            'image'=>'nullable',
         ]);
 
         $data['activity'] = 'active';

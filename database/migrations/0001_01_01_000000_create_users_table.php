@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('activity')->default('active');
             $table->string('phone')->unique();
             $table->string('address');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
