@@ -38,7 +38,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Happy Gloves',
                 'price' => 9.99,
-                'image' => 'gloves.png',
+                'image' => 'gloves.jpeg',
                 'amount' => 50,
                 'Category_id' => 2,
                 'shop_id' => 4,
@@ -46,7 +46,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Weeknd Hoodie',
+                'name' => 'Puff Vest',
                 'price' => 29.99,
                 'image' => 'hoodie.jpeg',
                 'amount' => 50,
@@ -56,7 +56,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Black Hoodie',
+                'name' => 'Puff jacket',
                 'price' => 29.99,
                 'image' => 'hoodie2.jpeg',
                 'amount' => 50,
@@ -66,7 +66,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Zara Pijama',
+                'name' => 'Baige Coat',
                 'price' => 29.99,
                 'image' => 'pijama.jpeg',
                 'amount' => 50,
@@ -76,7 +76,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Ship',
+                'name' => 'Heart Necklace',
                 'price' => 19.99,
                 'image' => 'ship.jpeg',
                 'amount' => 50,
@@ -86,9 +86,9 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Shirt',
+                'name' => 'Black T-Shirt',
                 'price' => 29.99,
-                'image' => 'shirt.png',
+                'image' => 'shirt.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 8,
@@ -96,7 +96,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Smith Shoes',
+                'name' => 'Running Shoes',
                 'price' => 29.99,
                 'image' => 'shoes.jpeg',
                 'amount' => 50,
@@ -106,7 +106,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Gray Pumas',
+                'name' => 'Puma Jordans',
                 'price' => 29.99,
                 'image' => 'shoes2.jpeg',
                 'amount' => 50,
@@ -116,7 +116,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Red Pumas',
+                'name' => 'Puma Sneackers',
                 'price' => 29.99,
                 'image' => 'shoes3.jpeg',
                 'amount' => 50,
@@ -126,7 +126,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Gray Nike',
+                'name' => 'Gray Air Jordans',
                 'price' => 29.99,
                 'image' => 'shoes4.jpeg',
                 'amount' => 50,
@@ -136,7 +136,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Black Adidas',
+                'name' => 'Black Running Adidas ',
                 'price' => 29.99,
                 'image' => 'shoes5.jpeg',
                 'amount' => 50,
@@ -148,7 +148,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Casual Pumas',
                 'price' => 29.99,
-                'image' => 'shoes6.png',
+                'image' => 'shoes6.jpeg',
                 'amount' => 50,
                 'Category_id' => 3,
                 'shop_id' => 5,
@@ -156,7 +156,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Blue Adidas',
+                'name' => 'SuperStar Adidas',
                 'price' => 29.99,
                 'image' => 'shoes7.jpeg',
                 'amount' => 50,
@@ -166,7 +166,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Jordan Nike',
+                'name' => 'Black Running Nike',
                 'price' => 29.99,
                 'image' => 'shoes8.jpeg',
                 'amount' => 50,
@@ -176,22 +176,12 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Green Nike',
+                'name' => 'Casual Nike',
                 'price' => 29.99,
                 'image' => 'shoes9.jpeg',
                 'amount' => 50,
                 'Category_id' => 3,
                 'shop_id' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'name' => 'Flannel Skirt',
-                'price' => 39.99,
-                'image' => 'skirt.jpeg',
-                'amount' => 50,
-                'Category_id' => 1,
-                'shop_id' => 8,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -236,7 +226,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Watch',
+                'name' => 'Rose Gold Watch',
                 'price' => 19.99,
                 'image' => 'watch.jpeg',
                 'amount' => 50,
@@ -246,7 +236,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Casual Shirt',
+                'name' => 'Blue Jeans',
                 'price' => 19.99,
                 'image' => 'tshirt.jpeg',
                 'amount' => 50,
@@ -256,7 +246,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Gray T-Shirt',
+                'name' => 'Baseball Jacket',
                 'price' => 19.99,
                 'image' => 'tshirt2.jpeg',
                 'amount' => 50,
@@ -266,7 +256,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Pants',
+                'name' => 'Boyfriend Jeans',
                 'price' => 29.99,
                 'image' => 'pants.jpeg',
                 'amount' => 50,
@@ -278,7 +268,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Leather Jacket',
                 'price' => 39.99,
-                'image' => 'jacket.png',
+                'image' => 'jacket.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 8,
@@ -286,7 +276,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Sweater',
+                'name' => 'Black Sweater',
                 'price' => 29.99,
                 'image' => 'sweater.jpeg',
                 'amount' => 50,
@@ -296,7 +286,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Puff Jacket',
+                'name' => 'Gray Jacket',
                 'price' => 29.99,
                 'image' => 'jacket2.jpeg',
                 'amount' => 50,
@@ -306,7 +296,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Casual Jacket',
+                'name' => 'F1 Boss Jacket',
                 'price' => 29.99,
                 'image' => 'jacket4.jpeg',
                 'amount' => 50,
@@ -316,7 +306,7 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Baseball Jacket',
+                'name' => 'Song Name T-Shirt',
                 'price' => 29.99,
                 'image' => 'jacket5.jpeg',
                 'amount' => 50,
