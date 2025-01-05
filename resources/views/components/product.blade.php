@@ -11,7 +11,6 @@
       <div class="mt-2 mb-5 flex items-center justify-between">
         <p>
           <span class="text-3xl font-bold text-slate-900">{{ $product->price }}</span>
-          <span class="text-lg font-bold text-slate-900 line-through">{{ $product->price + 20 }}</span>
         </p>
       </div>
     <div class ="flex items-center justify-end gap-4 mt-6">
