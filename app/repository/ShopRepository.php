@@ -18,6 +18,7 @@ class ShopRepository implements ShopRepositoryInterface
     public function show($id){
         $shop=Shop::find($id);
 
+
         $shop->products;
 
         return $shop;
