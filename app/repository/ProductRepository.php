@@ -23,11 +23,14 @@ class ProductRepository implements ProductRepositoryInterface
     public function search($data)
     {
         $product=Product::where('name','like','%'.$data['name'].'%')->get();
-        $shop=Shop::where('name','like','%'.$data['name'].'%')->get();
+        $shops=Shop::where('name','like','%'.$data['name'].'%')->get();
+
+        foreach($shops as $sh)
+            $sh->products;
 
         $response=[
             'product'=>$product,
-            'shop'=>$shop,
+            'shop'=>$shops,
         ];
 
         return $response;
