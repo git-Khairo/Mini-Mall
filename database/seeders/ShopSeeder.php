@@ -17,7 +17,7 @@ class ShopSeeder extends Seeder
         DB::table('shops')->insert([
             [
                 'name' => 'Nike',
-                'logo' => 'nike.jpeg',
+                'logo' => 'storage/shops/nike.jpeg',
                 'address' => 'Damascus, Shaalan',
                 'phonenumber' => '0951-584-193',
                 'user_id' => 2,
@@ -26,7 +26,7 @@ class ShopSeeder extends Seeder
             ],
             [
                 'name' => 'Adidas',
-                'logo' => 'adidas.jpeg',
+                'logo' => 'storage/shops/adidas.jpeg',
                 'address' => 'Damascus, Hamra',
                 'phonenumber' => '0935-692-420',
                 'user_id' => 3,
@@ -35,7 +35,7 @@ class ShopSeeder extends Seeder
             ],
             [
                 'name' => 'Casucci',
-                'logo' => 'casucci.jpeg',
+                'logo' => 'storage/shops/casucci.jpeg',
                 'address' => 'Damascus, Salheyah',
                 'phonenumber' => '0962-938-140',
                 'user_id' => 4,
@@ -44,7 +44,7 @@ class ShopSeeder extends Seeder
             ],
             [
                 'name' => 'Juri Planet',
-                'logo' => 'juri-planet.jpeg',
+                'logo' => 'storage/shops/juri-planet.jpeg',
                 'address' => 'Damascus, Maysat',
                 'phonenumber' => '0948-201-309',
                 'user_id' => 5,
@@ -53,7 +53,7 @@ class ShopSeeder extends Seeder
             ],
             [
                 'name' => 'Puma',
-                'logo' => 'puma.jpeg',
+                'logo' => 'storage/shops/puma.jpeg',
                 'address' => 'Damascus, Malki',
                 'phonenumber' => '0963-104-482',
                 'user_id' => 6,
@@ -62,7 +62,7 @@ class ShopSeeder extends Seeder
             ],
             [
                 'name' => 'Sham',
-                'logo' => 'sham.jpeg',
+                'logo' => 'storage/shops/sham.jpeg',
                 'address' => 'Damascus, Dummar',
                 'phonenumber' => '0914-294-591',
                 'user_id' => 7,
@@ -71,7 +71,7 @@ class ShopSeeder extends Seeder
             ],
             [
                 'name' => 'Stickers World',
-                'logo' => 'stickers-world.jpeg',
+                'logo' => 'storage/shops/stickers-world.jpeg',
                 'address' => 'Damascus, Maydan',
                 'phonenumber' => '0948-912-765',
                 'user_id' => 8,
@@ -80,7 +80,7 @@ class ShopSeeder extends Seeder
             ],
             [
                 'name' => 'Talis',
-                'logo' => 'talis.jpeg',
+                'logo' => 'storage/shops/talis.jpeg',
                 'address' => 'Damascus, Mazzeh',
                 'phonenumber' => '0937-195-389',
                 'user_id' => 9,
@@ -89,7 +89,7 @@ class ShopSeeder extends Seeder
             ],
             [
                 'name' => 'XO',
-                'logo' => 'xo.jpeg',
+                'logo' => 'storage/shops/xo.jpeg',
                 'address' => 'Damascus, Abo rummaneh',
                 'phonenumber' => '0942-739-198',
                 'user_id' => 10,
@@ -98,7 +98,7 @@ class ShopSeeder extends Seeder
             ],
             [
                 'name' => 'Zara',
-                'logo' => 'zara.jpeg',
+                'logo' => 'storage/shops/zara.jpeg',
                 'address' => 'Damascus',
                 'phonenumber' => '0951-589-394',
                 'user_id' => 11,

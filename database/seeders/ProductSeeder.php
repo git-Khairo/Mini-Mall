@@ -18,7 +18,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Gift Box',
                 'price' => 9.99,
-                'image' => 'box.jpeg',
+                'image' => 'storage/products/box.jpeg',
                 'amount' => 50,
                 'Category_id' => 2,
                 'shop_id' => 6,
@@ -28,7 +28,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Butterfly Bracelet',
                 'price' => 19.99,
-                'image' => 'bracelet.jpeg',
+                'image' => 'storage/products/bracelet.jpeg',
                 'amount' => 50,
                 'Category_id' => 2,
                 'shop_id' => 4,
@@ -38,7 +38,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Happy Gloves',
                 'price' => 9.99,
-                'image' => 'gloves.jpeg',
+                'image' => 'storage/products/gloves.jpeg',
                 'amount' => 50,
                 'Category_id' => 2,
                 'shop_id' => 4,
@@ -48,7 +48,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Puff Vest',
                 'price' => 29.99,
-                'image' => 'hoodie.jpeg',
+                'image' => 'storage/products/hoodie.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 9,
@@ -58,7 +58,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Puff jacket',
                 'price' => 29.99,
-                'image' => 'hoodie2.jpeg',
+                'image' => 'storage/products/hoodie2.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 9,
@@ -68,7 +68,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Baige Coat',
                 'price' => 29.99,
-                'image' => 'pijama.jpeg',
+                'image' => 'storage/products/pijama.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 10,
@@ -78,7 +78,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Heart Necklace',
                 'price' => 19.99,
-                'image' => 'ship.jpeg',
+                'image' => 'storage/products/ship.jpeg',
                 'amount' => 50,
                 'Category_id' => 2,
                 'shop_id' => 6,
@@ -88,7 +88,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Black T-Shirt',
                 'price' => 29.99,
-                'image' => 'shirt.jpeg',
+                'image' => 'storage/products/shirt.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 8,
@@ -98,7 +98,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Running Shoes',
                 'price' => 29.99,
-                'image' => 'shoes.jpeg',
+                'image' => 'storage/products/shoes.jpeg',
                 'amount' => 50,
                 'Category_id' => 3,
                 'shop_id' => 2,
@@ -108,7 +108,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Puma Jordans',
                 'price' => 29.99,
-                'image' => 'shoes2.jpeg',
+                'image' => 'storage/products/shoes2.jpeg',
                 'amount' => 50,
                 'Category_id' => 3,
                 'shop_id' => 5,
@@ -118,7 +118,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Puma Sneackers',
                 'price' => 29.99,
-                'image' => 'shoes3.jpeg',
+                'image' => 'storage/products/shoes3.jpeg',
                 'amount' => 50,
                 'Category_id' => 3,
                 'shop_id' => 5,
@@ -128,7 +128,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Gray Air Jordans',
                 'price' => 29.99,
-                'image' => 'shoes4.jpeg',
+                'image' => 'storage/products/shoes4.jpeg',
                 'amount' => 50,
                 'Category_id' => 3,
                 'shop_id' => 1,
@@ -138,7 +138,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Black Running Adidas ',
                 'price' => 29.99,
-                'image' => 'shoes5.jpeg',
+                'image' => 'storage/products/shoes5.jpeg',
                 'amount' => 50,
                 'Category_id' => 3,
                 'shop_id' => 2,
@@ -148,7 +148,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Casual Pumas',
                 'price' => 29.99,
-                'image' => 'shoes6.jpeg',
+                'image' => 'storage/products/shoes6.jpeg',
                 'amount' => 50,
                 'Category_id' => 3,
                 'shop_id' => 5,
@@ -158,7 +158,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'SuperStar Adidas',
                 'price' => 29.99,
-                'image' => 'shoes7.jpeg',
+                'image' => 'storage/products/shoes7.jpeg',
                 'amount' => 50,
                 'Category_id' => 3,
                 'shop_id' => 2,
@@ -168,7 +168,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Black Running Nike',
                 'price' => 29.99,
-                'image' => 'shoes8.jpeg',
+                'image' => 'storage/products/shoes8.jpeg',
                 'amount' => 50,
                 'Category_id' => 3,
                 'shop_id' => 1,
@@ -178,7 +178,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Casual Nike',
                 'price' => 29.99,
-                'image' => 'shoes9.jpeg',
+                'image' => 'storage/products/shoes9.jpeg',
                 'amount' => 50,
                 'Category_id' => 3,
                 'shop_id' => 1,
@@ -188,7 +188,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Stand Souvinre',
                 'price' => 4.99,
-                'image' => 'stand.jpeg',
+                'image' => 'storage/products/stand.jpeg',
                 'amount' => 50,
                 'Category_id' => 2,
                 'shop_id' => 6,
@@ -198,7 +198,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Stickers collection #1',
                 'price' => 9.99,
-                'image' => 'stickers.jpeg',
+                'image' => 'storage/products/stickers.jpeg',
                 'amount' => 50,
                 'Category_id' => 2,
                 'shop_id' => 7,
@@ -208,7 +208,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Stickers collection #2',
                 'price' => 9.99,
-                'image' => 'stickers2.jpeg',
+                'image' => 'storage/products/stickers2.jpeg',
                 'amount' => 50,
                 'Category_id' => 2,
                 'shop_id' => 7,
@@ -218,7 +218,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Stickers collection #3',
                 'price' => 9.99,
-                'image' => 'stickers3.jpeg',
+                'image' => 'storage/products/stickers3.jpeg',
                 'amount' => 50,
                 'Category_id' => 2,
                 'shop_id' => 7,
@@ -228,7 +228,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Rose Gold Watch',
                 'price' => 19.99,
-                'image' => 'watch.jpeg',
+                'image' => 'storage/products/watch.jpeg',
                 'amount' => 50,
                 'Category_id' => 2,
                 'shop_id' => 4,
@@ -238,7 +238,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Blue Jeans',
                 'price' => 19.99,
-                'image' => 'tshirt.jpeg',
+                'image' => 'storage/products/tshirt.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 10,
@@ -248,7 +248,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Baseball Jacket',
                 'price' => 19.99,
-                'image' => 'tshirt2.jpeg',
+                'image' => 'storage/products/tshirt2.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 9,
@@ -258,7 +258,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Boyfriend Jeans',
                 'price' => 29.99,
-                'image' => 'pants.jpeg',
+                'image' => 'storage/products/pants.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 10,
@@ -268,7 +268,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Leather Jacket',
                 'price' => 39.99,
-                'image' => 'jacket.jpeg',
+                'image' => 'storage/products/jacket.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 8,
@@ -278,7 +278,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Black Sweater',
                 'price' => 29.99,
-                'image' => 'sweater.jpeg',
+                'image' => 'storage/products/sweater.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 8,
@@ -288,7 +288,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Gray Jacket',
                 'price' => 29.99,
-                'image' => 'jacket2.jpeg',
+                'image' => 'storage/products/jacket2.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 3,
@@ -298,7 +298,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'F1 Boss Jacket',
                 'price' => 29.99,
-                'image' => 'jacket4.jpeg',
+                'image' => 'storage/products/jacket4.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 3,
@@ -308,7 +308,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Song Name T-Shirt',
                 'price' => 29.99,
-                'image' => 'jacket5.jpeg',
+                'image' => 'storage/products/jacket5.jpeg',
                 'amount' => 50,
                 'Category_id' => 1,
                 'shop_id' => 3,

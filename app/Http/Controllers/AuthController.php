@@ -59,6 +59,24 @@ class AuthController extends Controller
         
         $user = $this->userRepository->getUser($userId);
 
-        return response()->json(['message' => 'User successfully', 'user' => $user], 201);
+        return response()->json(['message' => 'User returned successfully', 'user' => $user], 201);
+    }
+
+    public function updateUser(Request $request){
+        $data = $request->validate([
+            'firstName'=>'|max:255',
+            'lastName'=>'|max:255',
+            'email'=>'|email|unique:users',
+            'password'=>'',
+            'phone'=>'unique:users',
+            'address'=>'',
+            'image'=>'nullable',
+        ]);
+
+        $userId = Auth::id();
+
+        $user = $this->userRepository->updateUser($userId, $data);
+
+        return response()->json(['message' => 'User updated successfully', 'user' => $user], 201);
     }
 }

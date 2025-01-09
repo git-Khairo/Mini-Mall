@@ -27,6 +27,7 @@ Route::get('/search',[ProductController::class, 'search']);//
 //pro Rote
 Route::group(['middleware'=>['auth:sanctum']], function (){
     Route::get('/user',[AuthController::class, 'getUser']);//
+    Route::put('/user/update',[AuthController::class, 'updateUser']);//
     Route::post('/logout',[AuthController::class,'logout']);//
     Route::get('/favorite',[FavoriteController::class, 'show']);//
     Route::post('/favorite/store',[FavoriteController::class, 'store']);//

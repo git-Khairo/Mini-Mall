@@ -44,6 +44,6 @@ class ProductController extends Controller
         ]);
         $response= $this->ProductRepository->search($name);
 
-        return response()->json($response);
+        return response()->json(['message' => 'Search results', 'response' => $response],201);
     }
 }
