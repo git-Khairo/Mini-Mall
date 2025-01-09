@@ -67,10 +67,10 @@ class AuthController extends Controller
             'firstName'=>'|max:255',
             'lastName'=>'|max:255',
             'email'=>'|email|unique:users',
-            'password'=>'',
+            'password'=>'min:8',
             'phone'=>'unique:users',
-            'address'=>'',
-            'image'=>'nullable',
+            'address'=>'max:255',
+            'image'=>'max:300',
         ]);
 
         $userId = Auth::id();
