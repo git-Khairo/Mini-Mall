@@ -77,6 +77,11 @@ class AdminRepository implements AdminRepositoryInterface
             return response()->json(['errors' => $data->errors()], 422);
         }
 
+        if(isset($data['image'])){
+            $imageName = Storage::disk('public')->put('products', $data['image']);
+            $data['image']= $imageName;
+         }
+
         // Create the product
         $product = Product::create([
             'name' => $data['name'],
@@ -139,6 +144,11 @@ class AdminRepository implements AdminRepositoryInterface
         return response()->json(['errors' => $data->errors()], 422);
     }
 
+    if(isset($data['logo'])){
+        $imageName = Storage::disk('public')->put('shops', $data['logo']);
+        $data['logo']= $imageName;
+     }
+
     // Create the product
     $shop = Shop::create([
         'name' => $data['name'],
@@ -194,9 +204,13 @@ class AdminRepository implements AdminRepositoryInterface
    }
 
    public function Register($data){
-       $imageName = Storage::disk('public')->put('images', $data['image']);
-
+    if(isset($data['image'])){
+       $imageName = Storage::disk('public')->put('user', $data['image']);
        $data['image']= $imageName;
+    }else{
+        $imageName = Storage::disk('public')->put('user', 'user.jpg');
+        $data['image']= $imageName;
+    }
 
        $user=User::create($data);
 

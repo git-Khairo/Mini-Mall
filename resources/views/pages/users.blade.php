@@ -4,7 +4,7 @@
         <div class="grid grid-cols-3 gap-6 w-full my-4">
         @foreach ($users['admins'] as $admin)
             <div class="py-8 px-2 max-w-sm mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-            <img class="block mx-auto h-20 rounded-full sm:mx-0 sm:shrink-0" src="{{ asset('storage/user/user.jpg') }}" alt="Woman's Face">
+            <img class="block mx-auto h-20 rounded-full sm:mx-0 sm:shrink-0" src="{{ asset('storage/'.$admin->image) }}" alt="Woman's Face">
             <div class="text-center space-y-2 sm:text-left">
                 <div class="space-y-0.5">
                     <p class="text-lg text-black font-semibold">
@@ -35,8 +35,8 @@
         <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl">Users</h1>
         <div class="grid grid-cols-3 gap-6 w-full my-4">
         @foreach ($users['users'] as $user)
-            <div class="py-8 px-2 max-w-sm mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-            <img class="block mx-auto h-20 rounded-full sm:mx-0 sm:shrink-0" src="{{ asset('storage/user/user.jpg') }}" alt="Woman's Face">
+            <div class="flex justify-center items-center py-8 px-2 max-w-sm mx-10 bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+            {{-- <img class="block mx-auto h-20 rounded-full sm:mx-0 sm:shrink-0" src="{{ asset('storage/user/user.jpg') }}" alt="Woman's Face"> --}}
             <div class="text-center space-y-2 sm:text-left">
                 <div class="space-y-0.5">
                     <p class="text-lg text-black font-semibold">

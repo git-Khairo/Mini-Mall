@@ -82,7 +82,7 @@ class AdminController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $product = $this->AdminRepository->createProduct($validatedData);
+        $this->AdminRepository->createProduct($validatedData);
 
         return redirect()->route('viewProducts');
     }

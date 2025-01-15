@@ -47,11 +47,11 @@ class FavoriteRepository implements FavoriteRepositoryInterface
         return $favorite;
     }
 
-    public function delete($userId, $productId)
+    public function delete($userId, $id)
     {
          // Find the favorite by ID
          $favorite = Favorite::where('user_id', $userId)
-         ->where('product_id', $productId)
+         ->where('id', $id)
          ->first();
 
          // Check if the favorite exists

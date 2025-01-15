@@ -23,7 +23,7 @@ class CategoryController extends Controller
     {
         $categories = $this->CategoryRepository->all();
 
-        return response()->json(['messgae' => 'all Categories', 'categories' => $categories,201]);
+        return response()->json(['messgae' => 'all Categories', 'categories' => $categories], 201);
     }
 
 

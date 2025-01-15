@@ -22,7 +22,7 @@ class SuperUserController extends Controller
             'password'=>'required|confirmed',
             'phone'=>'required|unique:users',
             'address'=>'required',
-            'image'=>'required'
+            'image'=>'image|mimes:jpeg,png,jpg,gif'
         ]);
 
         $data['activity'] = 'active';
@@ -93,10 +93,10 @@ class SuperUserController extends Controller
     public function updateShop(Request $request, $id){
         // Validate the data (optional but recommended)
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'address' => 'required|string',
-            'phonenumber' => 'required',
+            'name' => 'string|max:255',
+            'logo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'address' => 'string',
+            'phonenumber' => 'string',
         ]);
 
         $shop = $this->AdminRepository->updateShop($validatedData,$id);
